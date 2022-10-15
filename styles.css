@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    font-family: Georgia;
+    font-family: 'Courier New';
     cursor: pointer;
 }
 .navbar {
@@ -9,12 +9,18 @@ body {
     width: 100%; /* Full width */
     text-align: center;
     padding: 1%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: right;
 }
 
 .navbar a {
     color: white;
-    padding: 7%;
+    padding: 1%;
     color:blue;
+    text-align: right;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .navbar a:hover {
@@ -22,6 +28,14 @@ body {
     color: black;
 }
 
+.quotation {
+    font-style: italic;
+}
+
+.bar {
+    padding: 1px;
+    background-color: darkblue;
+}
 
 h1 {
     text-align: center;
