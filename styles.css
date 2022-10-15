@@ -3,6 +3,26 @@ body {
     font-family: Georgia;
     cursor: pointer;
 }
+.navbar {
+    overflow: hidden;
+    top: 0; /* Position the navbar at the top of the page */
+    text-align: center;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    padding: 7px;
+    color:rgb(249, 222, 242);
+    color:rgb(90, 19, 84);
+}
+
+.navbar a:hover {
+    font-style: italic;
+    font-size: 20px;
+}
+
+
 h1 {
     text-align: center;
 }
