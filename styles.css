@@ -1,25 +1,25 @@
 body {
-    background-color: rgb(249, 222, 242);
+    background-color: white;
     font-family: Georgia;
     cursor: pointer;
 }
 .navbar {
     overflow: hidden;
     top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
     text-align: center;
-    padding: 10px;
+    padding: 1%;
 }
 
 .navbar a {
     color: white;
-    padding: 7px;
-    color:rgb(249, 222, 242);
-    color:rgb(90, 19, 84);
+    padding: 7%;
+    color:blue;
 }
 
 .navbar a:hover {
     font-style: italic;
-    font-size: 20px;
+    color: black;
 }
 
 
@@ -29,4 +29,17 @@ h1 {
 h2 {
     text-align: center;
     font-style: italic;
+}
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 500s linear infinite;
 }
