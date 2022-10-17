@@ -1,22 +1,33 @@
+html {
+    height: 100%;
+}
 body {
     background-color: white;
-    font-family: 'Courier New';
+    font-family: 'Georgia';
     cursor: pointer;
+    width: 99%;
+    length: 99%;
+    background-size: cover;
 }
+
 .navbar {
     overflow: hidden;
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
     text-align: center;
-    padding: 1%;
-    padding-top: 3%;
-    padding-bottom: 3%;
     text-align: right;
+}
+
+.box {
+    background: pink;
+}
+
+.navbar {
+    /* background-image: linear-gradient(rgb(255, 255, 255), lightyellow); */
 }
 
 .navbar a {
     color: white;
     padding: 1%;
+    text-decoration: none;
     color:blue;
     text-align: right;
     font-weight: bold;
@@ -24,17 +35,12 @@ body {
 }
 
 .navbar a:hover {
-    font-style: italic;
     color: black;
-}
-
-.quotation {
-    font-style: italic;
+    text-decoration: underline;
 }
 
 .bar {
-    padding: 1px;
-    background-color: darkblue;
+    background-color: white;
 }
 
 h1 {
@@ -45,15 +51,7 @@ h2 {
     font-style: italic;
 }
 
-@-webkit-keyframes rotating {
-    from{
-        -webkit-transform: rotate(0deg);
-    }
-    to{
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-.rotating {
-    -webkit-animation: rotating 500s linear infinite;
-}
+#navigation li a.current{
+    color: #ffffff;
+    background:#f1d74c;
+ }

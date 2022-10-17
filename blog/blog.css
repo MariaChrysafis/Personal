@@ -1,5 +1,4 @@
 body {
-    background-color:rgb(220, 220, 220);
     font-family:'Courier New';
 }
 .title {
@@ -12,18 +11,22 @@ body {
 }
 .entry {
     padding: 10px;
-    background-color: rgb(41, 3, 94);
+    background-color: rgb(255, 255, 255);
     outline: 5px solid white;
     color: white;
 }
-.entry h1 {
-    font-size: 30px;
-    text-align: center;
+.entry .title {
+    color: green;
+    background-color: white;
 }
 .entry p {
-    font-size: 15px;
-    background: white;
-    padding: 25px;
-    color: black;
-    margin-top: 20px;
+    color: green;
+}
+
+a {
+    color: blue;
+    font-size: 20px;
+}
+a:hover{
+    text-decoration: none;
 }
