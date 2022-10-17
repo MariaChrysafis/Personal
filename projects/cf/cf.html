@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function testVariable() {
+            var handle = document.getElementById("handle").value;          
+            var url = 'https://codeforces.com/api/user.rating?handle=';
+            url += handle;
+            document.getElementById('spanResult').textContent = url;
+            
+        }
+    </script>
+</head>
+<body> 
+    <input type="text" id="handle" />
+    <button  onclick="testVariable()">Submit</button> <br />
+    <span id="spanResult">
+
+    </span>
+   
+     
+</body>
+</html>
