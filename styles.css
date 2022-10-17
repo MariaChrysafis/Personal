@@ -3,21 +3,25 @@ html {
 }
 body {
     background-color: white;
-    font-family: 'Georgia';
+    font-family: 'Corpo Serif Medium';
     cursor: pointer;
-    width: 99%;
-    length: 99%;
     background-size: cover;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .navbar {
     overflow: hidden;
     text-align: center;
     text-align: right;
+    padding-top: 5px;
 }
 
 .box {
-    background: pink;
+    background: rgb(247, 247, 247);
+    padding: 10px;
 }
 
 .navbar {
@@ -31,27 +35,37 @@ body {
     color:blue;
     text-align: right;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .navbar a:hover {
-    color: black;
     text-decoration: underline;
 }
 
 .bar {
-    background-color: white;
+    background-color: rgb(236, 236, 236);
+    padding: 1px;
 }
 
 h1 {
     text-align: center;
+    font-size: 50px;
 }
+
 h2 {
     text-align: center;
     font-style: italic;
 }
 
-#navigation li a.current{
-    color: #ffffff;
-    background:#f1d74c;
- }
+.about-me {
+    padding: 20px;
+}
+
+.about-me p {
+    font-size: 20px;
+}
+
+.about-me h1 {
+    font-size: 30px;
+    text-align: left;
+}
