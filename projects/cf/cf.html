@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="cf.css">
     <script>
         async function loadNames (url) {
             const response = await fetch(url);
@@ -25,7 +26,7 @@
             for (var i in res) {
                 table += '<tr><td>'+res[i].newRating+'</td><td>'+res[i].oldRating +'</td></tr>';
             }
-        document.getElementById("table").innerHTML = table;
+            document.getElementById("table").innerHTML = table;
         }
     </script>
 </head>
@@ -36,6 +37,8 @@
     </button> 
     <br />
     <span id="spanResult"> </span>
-     <div id="table"> </div>
+    <div class="table">
+        <div id="table"> </div>
+    </div>
 </body>
 </html>
