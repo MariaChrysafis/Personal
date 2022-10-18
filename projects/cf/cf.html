@@ -3,21 +3,24 @@
 <html>
 <head>
     <script>
+        async function loadNames (url) {
+            const response = await fetch(url);
+            const names = await response.json();
+            //const responseText = await response.text();
+            document.getElementById("spanResult").textContent = JSON.stringify(names);
+        }
         function testVariable() {
             var handle = document.getElementById("handle").value;          
             var url = 'https://codeforces.com/api/user.rating?handle=';
             url += handle;
-            document.getElementById('spanResult').textContent = url;
-            
+            loadNames(url);
         }
     </script>
 </head>
 <body> 
     <input type="text" id="handle" />
-    <button  onclick="testVariable()">Submit</button> <br />
-    <span id="spanResult">
-
-    </span>
+    <button onclick="testVariable()">Submit</button> <br />
+    <span id="spanResult"> </span>
    
      
 </body>
