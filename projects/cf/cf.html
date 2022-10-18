@@ -3,6 +3,7 @@
 <html>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="cf.css">
     <script>
         function toDateTime(secs) {
@@ -43,7 +44,7 @@
                 x: arr2,
                 y: arr1,
                 text: arr3,
-                mode:"lines"
+                mode:"lines",
             }];
             var layout = {
                 xaxis: {title: "Date"},
@@ -54,12 +55,15 @@
         }
     </script>
 </head>
-<body> 
-    <input type="text" id="handle" />
-    <button onclick="testVariable()">
-        Submit
-    </button> 
-    <br />
+<body>
+    <div class="box">
+        <form>
+            <input type="text" id="handle" placeholder="Input Codeforces User Handle..."/ autocomplete="off">
+        </form> 
+        <button onclick="testVariable()">
+            See rating chart.
+        </button> 
+    </div>
     <span id="spanResult"> </span>
     <div id="graph"> </div>
     <div class="table">
