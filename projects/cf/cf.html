@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -57,9 +56,11 @@
 </head>
 <body>
     <div class="box">
-        <form>
-            <input type="text" id="handle" placeholder="Input Codeforces User Handle..."/ autocomplete="off">
-        </form> 
+        <form id="commentForm" onSubmit="testVariable(); return false;">
+            <div class="input-group">
+              <input type="text" class="form-control" id="handle">
+            </div>
+          </form>
         <button id="myBtn" onclick="testVariable()">
             See rating chart.
         </button> 
