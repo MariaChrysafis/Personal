@@ -24,6 +24,14 @@
             //read the url
             const response = await fetch(url);
             const names = await response.json();
+            if (names.status=="FAILED") {
+                alert("Please enter a valid Codeforces username.");
+                return;
+            }
+            if (names.result.length <= 1) {
+                alert("Please enter a rated user.");
+                return;
+            }
             const res = names.result;
             //interpret the url
             var resData = {"key1":"value","key2":"value"};
@@ -38,7 +46,7 @@
                 arr2.push(toDateTime(res[i].ratingUpdateTimeSeconds));
                 arr3.push(res[i].contestName);
             }
-            document.getElementById("table").innerHTML = table;
+            //document.getElementById("table").innerHTML = table;
             var data = [{   
                 x: arr2,
                 y: arr1,
@@ -58,12 +66,9 @@
     <div class="box">
         <form id="commentForm" onSubmit="testVariable(); return false;">
             <div class="input-group">
-              <input type="text" class="form-control" id="handle">
+              <input type="text" class="form-control" id="handle" placeholder="Input Codeforces User Handle..."/ autocomplete="off">
             </div>
           </form>
-        <button id="myBtn" onclick="testVariable()">
-            See rating chart.
-        </button> 
     </div>
     <span id="spanResult"> </span>
     <div id="graph"> </div>
