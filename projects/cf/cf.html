@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <head>
     <link rel="stylesheet" href="cf.css">
     <script>
@@ -23,10 +24,25 @@
             var resData = {"key1":"value","key2":"value"};
             var table = '<table><thead><tr><th>newRating</th><th>oldRating</th></tr></thead>';
             table += '<tbody>';
+            var arr1 = new Array();
+            var arr2 = new Array();
             for (var i in res) {
                 table += '<tr><td>'+res[i].newRating+'</td><td>'+res[i].oldRating +'</td></tr>';
+                arr1.push(res[i].newRating);
+                arr2.push(res[i].ratingUpdateTimeSeconds);
             }
             document.getElementById("table").innerHTML = table;
+            var data = [{   
+                x: arr2,
+                y: arr1,
+                mode:"lines"
+            }];
+            var layout = {
+                xaxis: {title: "Date"},
+                yaxis: {title: "Rating"},
+                title: "House Prices vs. Size"
+            };
+            Plotly.newPlot("graph", data, layout);
         }
     </script>
 </head>
@@ -37,6 +53,7 @@
     </button> 
     <br />
     <span id="spanResult"> </span>
+    <div id="graph"> </div>
     <div class="table">
         <div id="table"> </div>
     </div>
