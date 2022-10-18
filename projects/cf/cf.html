@@ -5,6 +5,11 @@
 <head>
     <link rel="stylesheet" href="cf.css">
     <script>
+        function toDateTime(secs) {
+            var t = new Date(1970, 0, 1); // Epoch
+            t.setSeconds(secs);
+            return t;
+        }
         async function loadNames (url) {
             const response = await fetch(url);
             const names = await response.json();
@@ -26,21 +31,24 @@
             table += '<tbody>';
             var arr1 = new Array();
             var arr2 = new Array();
+            var arr3 = new Array();
             for (var i in res) {
                 table += '<tr><td>'+res[i].newRating+'</td><td>'+res[i].oldRating +'</td></tr>';
                 arr1.push(res[i].newRating);
-                arr2.push(res[i].ratingUpdateTimeSeconds);
+                arr2.push(toDateTime(res[i].ratingUpdateTimeSeconds));
+                arr3.push(res[i].contestName);
             }
             document.getElementById("table").innerHTML = table;
             var data = [{   
                 x: arr2,
                 y: arr1,
-                mode:"lines"
+                text: arr3,
+                mode:"lines",
             }];
             var layout = {
                 xaxis: {title: "Date"},
                 yaxis: {title: "Rating"},
-                title: "House Prices vs. Size"
+                title: "Time and Rating"
             };
             Plotly.newPlot("graph", data, layout);
         }
