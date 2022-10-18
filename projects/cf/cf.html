@@ -6,22 +6,36 @@
         async function loadNames (url) {
             const response = await fetch(url);
             const names = await response.json();
-            //const responseText = await response.text();
-            document.getElementById("spanResult").textContent = JSON.stringify(names);
+            const res = names.result;
+            document.getElementById("spanResult").textContent = JSON.stringify(res);
         }
-        function testVariable() {
+        async function testVariable() {
+            //Get the url
             var handle = document.getElementById("handle").value;          
             var url = 'https://codeforces.com/api/user.rating?handle=';
             url += handle;
-            loadNames(url);
+            //read the url
+            const response = await fetch(url);
+            const names = await response.json();
+            const res = names.result;
+            //interpret the url
+            var resData = {"key1":"value","key2":"value"};
+            var table = '<table><thead><tr><th>newRating</th><th>oldRating</th></tr></thead>';
+            table += '<tbody>';
+            for (var i in res) {
+                table += '<tr><td>'+res[i].newRating+'</td><td>'+res[i].oldRating +'</td></tr>';
+            }
+        document.getElementById("table").innerHTML = table;
         }
     </script>
 </head>
 <body> 
     <input type="text" id="handle" />
-    <button onclick="testVariable()">Submit</button> <br />
+    <button onclick="testVariable()">
+        Submit
+    </button> 
+    <br />
     <span id="spanResult"> </span>
-   
-     
+     <div id="table"> </div>
 </body>
 </html>
