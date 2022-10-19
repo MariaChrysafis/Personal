@@ -21,6 +21,14 @@
             url += handle;
             return url;
         }
+        function get_names (names) {
+            var res = names.result;
+            var arr = new Set();
+            for (var i in res) {
+                arr.add(res[i].contestName);
+            }
+            return arr;
+        }
         function get_data (names, str) {
             var res = names.result;
             var arr1 = new Array();
@@ -40,6 +48,19 @@
                 name: document.getElementById(str).value,
             };
             return data;
+        }
+        function common_contests (names1, names2) {
+            var c1 = get_names(names1);
+            var c2 = get_names(names2);
+            var arr = new Array();
+            for (var x in names1.result) {
+                if (c2.has(names1.result[x].contestName)) {
+                    arr.push(names1.result[x]);
+                }
+            }
+            alert("YES2");
+            document.getElementById("table").innerHTML = JSON.stringify(arr);
+            return arr;
         }
         async function testVariable() {
             //Get the url
@@ -63,6 +84,7 @@
                 title: "Rating Chart",
             };
             Plotly.newPlot("graph", [get_data(names1, "handle1"), get_data(names2, "handle2")], layout);
+            x = common_contests(names1, names2);
         }
     </script>
 </head>
@@ -83,10 +105,8 @@
             </input>
           </div>
     </div>
-    <span id="spanResult"> </span>
+    <pre id="spanResult"> </pre>
     <div id="graph"> </div>
-    <div class="table">
-        <div id="table"> </div>
-    </div>
+    <div id="table"> </div>
 </body>
 </html>
