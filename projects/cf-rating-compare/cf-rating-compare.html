@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cf-rating-compare.css">
+    <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+    <script>
+        function toDateTime(secs) {
+            var t = new Date(1970, 0, 1); // Epoch
+            t.setSeconds(secs);
+            return t;
+        }
+        async function loadNames (url) {
+            const response = await fetch(url);
+            const names = await response.json();
+            const res = names.result;
+            document.getElementById("spanResult").textContent = JSON.stringify(res);
+        }
+        function get_url (handle) {
+            var url = 'https://codeforces.com/api/user.rating?handle=';
+            url += handle;
+            return url;
+        }
+        async function testVariable() {
+            //Get the url
+            var url1 = get_url(document.getElementById("handle1").value);          
+            var url2 = get_url(document.getElementById("handle2").value); 
+            var response1 = await fetch(url1);
+            var response2 = await fetch(url2);
+            var names1 = await response1.json();
+            var names2 = await response2.json();
+            if (names1.status=="FAILED"||names2.status=="FAILED") {
+                alert("Please enter a valid Codeforces username.");
+                return;
+            }
+            var names = names1;
+            if (names.status=="FAILED") {
+                alert("Please enter a valid Codeforces username.");
+                return;
+            }
+            if (names.result.length <= 1) {
+                alert("Please enter a rated user.");
+                return;
+            }
+            const res = names.result;
+            //interpret the url
+            var resData = {"key1":"value","key2":"value"};
+            var table = '<table><thead><tr><th>newRating</th><th>oldRating</th></tr></thead>';
+            table += '<tbody>';
+            var arr1 = new Array();
+            var arr2 = new Array();
+            var arr3 = new Array();
+            for (var i in res) {
+                table += '<tr><td>'+res[i].newRating+'</td><td>'+res[i].oldRating +'</td></tr>';
+                arr1.push(res[i].newRating);
+                arr2.push(toDateTime(res[i].ratingUpdateTimeSeconds));
+                arr3.push(res[i].contestName);
+            }
+            //document.getElementById("table").innerHTML = table;
+            var data = {   
+                x: arr2,
+                y: arr1,
+                text: arr3,
+                type: 'scatter',
+                mode: 'markers+lines'
+            };
+            var layout = {
+                xaxis: {title: "Date"},
+                yaxis: {title: "Rating"},
+                title: "Rating Chart",
+            };
+            Plotly.newPlot("graph", [data], layout);
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <form>
+            <div>
+              <input type="text" class="form-control" id="handle1" placeholder="Input Codeforces User Handle #1..."/ autocomplete="off">
+            </div>
+          </form>
+          <form>
+            <div>
+              <input type="text" class="form-control" id="handle2" placeholder="Input Codeforces User Handle #2..."/ autocomplete="off">
+            </div>
+          </form>
+          <input type="submit" onclick="testVariable()"/>
+    </div>
+    <span id="spanResult"> </span>
+    <div id="graph"> </div>
+    <div class="table">
+        <div id="table"> </div>
+    </div>
+</body>
+</html>
