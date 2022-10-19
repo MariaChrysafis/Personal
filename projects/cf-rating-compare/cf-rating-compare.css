@@ -58,3 +58,17 @@ form {
 form {
     align: center;
 }
+
+.table {
+    text-align: center;
+    color: black;
+}
+
+.table a {
+    color: black;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
