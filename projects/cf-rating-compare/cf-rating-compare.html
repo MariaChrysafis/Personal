@@ -96,7 +96,12 @@
             table += '</thead>';
             table += '<tbody>';    
             for (i in common_contest) {
-                table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestId +'</td><td>'+common_contest[i].rank+'</td><td>'+common_contest[i].rank2+'</td></tr>';
+                table += '<tr><td><a href=';
+                table += 'https://codeforces.com/contest/';
+                table += common_contest[i].contestId;
+                table += '>';
+                table += common_contest[i].contestName+'</a></td><td>';
+                table += common_contest[i].contestId +'</td><td>'+common_contest[i].rank+'</td><td>'+common_contest[i].rank2+'</td></tr>';
             }
             document.getElementById("table").innerHTML = table;
         }
@@ -121,6 +126,6 @@
     </div>
     <pre id="spanResult"> </pre>
     <div id="graph"> </div>
-    <div id="table"> </div>
+    <div id="table" align="center"> </div>
 </body>
 </html>
