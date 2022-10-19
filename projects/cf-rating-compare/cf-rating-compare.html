@@ -91,7 +91,9 @@
             Plotly.newPlot("graph", [get_data(names1, "handle1"), get_data(names2, "handle2")], layout);
             common_contest = common_contests(names1, names2);
             var x = document.getElementById("handle1").value;
-            var table = '<table><thead><tr><th>Contest Name</th><th>Contest ID</th><th>Rank 1</th><th>Rank 2</th></tr></thead>';
+            var table = '<table><thead><tr><th>Contest Name</th><th>Contest ID</th>'+'<th>' + document.getElementById("handle1").value+'\'s rank</th>';
+            table += '<th>' + document.getElementById("handle2").value+'\'s rank</th>';
+            table += '</thead>';
             table += '<tbody>';    
             for (i in common_contest) {
                 table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestId +'</td><td>'+common_contest[i].rank+'</td><td>'+common_contest[i].rank2+'</td></tr>';
