@@ -87,6 +87,10 @@
                 xaxis: {title: "Date"},
                 yaxis: {title: "Rating"},
                 title: "Rating Chart",
+                font: {
+                    family: 'Corpo Serif Medium',
+                    size: 18,
+                }
             };
             Plotly.newPlot("graph", [get_data(names1, "handle1"), get_data(names2, "handle2")], layout);
             common_contest = common_contests(names1, names2);
