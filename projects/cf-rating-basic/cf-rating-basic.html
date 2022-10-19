@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="cf.css">
+    <link rel="stylesheet" href="cf-rating-basic.css">
+    <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
     <script>
         function toDateTime(secs) {
             var t = new Date(1970, 0, 1); // Epoch
@@ -47,18 +47,19 @@
                 arr3.push(res[i].contestName);
             }
             //document.getElementById("table").innerHTML = table;
-            var data = [{   
+            var data = {   
                 x: arr2,
                 y: arr1,
                 text: arr3,
-                mode:"lines",
-            }];
+                type: 'scatter',
+                mode: 'markers+lines'
+            };
             var layout = {
                 xaxis: {title: "Date"},
                 yaxis: {title: "Rating"},
                 title: "Rating Chart",
             };
-            Plotly.newPlot("graph", data, layout);
+            Plotly.newPlot("graph", [data], layout);
         }
     </script>
 </head>
