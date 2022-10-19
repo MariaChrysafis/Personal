@@ -83,10 +83,10 @@
             };
             Plotly.newPlot("graph", [get_data(names1, "handle1"), get_data(names2, "handle2")], layout);
             common_contest = common_contests(names1, names2);
-            var table = '<table><thead><tr><th>Contest Name</th><th>Contest ID</th></tr></thead>';
+            var table = '<table><thead><tr><th>Contest Name</th><th>Contest ID</th><th>Rank 1</th><th>Rank 2</th></tr></thead>';
             table += '<tbody>';    
             for (i in common_contest) {
-                table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestId +'</td></tr>';
+                table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestId +'</td><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestName+'</td></tr>';
             }
             document.getElementById("table").innerHTML = table;
         }
