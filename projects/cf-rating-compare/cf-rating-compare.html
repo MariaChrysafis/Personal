@@ -58,6 +58,13 @@
                     arr.push(names1.result[x]);
                 }
             }
+            var y = 0;
+            for (var x = 0; x < arr.length; x++) {
+                while (names2.result[y].contestName != arr[x].contestName) {
+                    y++;
+                    arr[x].rank2 = names2.result[y].rank;
+                }
+            }
             return arr;
         }
         async function testVariable() {
@@ -86,7 +93,7 @@
             var table = '<table><thead><tr><th>Contest Name</th><th>Contest ID</th><th>Rank 1</th><th>Rank 2</th></tr></thead>';
             table += '<tbody>';    
             for (i in common_contest) {
-                table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestId +'</td><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestName+'</td></tr>';
+                table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestName +'</td><td>'+common_contest[i].rank+'</td><td>'+common_contest[i].rank2+'</td></tr>';
             }
             document.getElementById("table").innerHTML = table;
         }
