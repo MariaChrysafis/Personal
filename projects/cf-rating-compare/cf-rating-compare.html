@@ -58,8 +58,6 @@
                     arr.push(names1.result[x]);
                 }
             }
-            alert("YES2");
-            document.getElementById("table").innerHTML = JSON.stringify(arr);
             return arr;
         }
         async function testVariable() {
@@ -84,7 +82,13 @@
                 title: "Rating Chart",
             };
             Plotly.newPlot("graph", [get_data(names1, "handle1"), get_data(names2, "handle2")], layout);
-            x = common_contests(names1, names2);
+            common_contest = common_contests(names1, names2);
+            var table = '<table><thead><tr><th>Contest Name</th><th>Contest ID</th></tr></thead>';
+            table += '<tbody>';    
+            for (i in common_contest) {
+                table += '<tr><td>'+common_contest[i].contestName+'</td><td>'+common_contest[i].contestId +'</td></tr>';
+            }
+            document.getElementById("table").innerHTML = table;
         }
     </script>
 </head>
