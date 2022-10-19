@@ -33,34 +33,40 @@
                 alert("Please enter a valid Codeforces username.");
                 return;
             }
-            var names = names1;
-            if (names.status=="FAILED") {
-                alert("Please enter a valid Codeforces username.");
-                return;
-            }
-            if (names.result.length <= 1) {
+            if (names1.result.length <= 1 || names2.result.length <= 1) {
                 alert("Please enter a rated user.");
                 return;
             }
-            const res = names.result;
-            //interpret the url
-            var resData = {"key1":"value","key2":"value"};
-            var table = '<table><thead><tr><th>newRating</th><th>oldRating</th></tr></thead>';
-            table += '<tbody>';
+            const res1 = names1.result;
+            const res2 = names2.result;
             var arr1 = new Array();
             var arr2 = new Array();
             var arr3 = new Array();
-            for (var i in res) {
-                table += '<tr><td>'+res[i].newRating+'</td><td>'+res[i].oldRating +'</td></tr>';
-                arr1.push(res[i].newRating);
-                arr2.push(toDateTime(res[i].ratingUpdateTimeSeconds));
-                arr3.push(res[i].contestName);
+            var brr1 = new Array();
+            var brr2 = new Array();
+            var brr3 = new Array();
+            for (var i in res1) {
+                arr1.push(res1[i].newRating);
+                arr2.push(toDateTime(res1[i].ratingUpdateTimeSeconds));
+                arr3.push(res1[i].contestName);
+            }
+            for (var i in res2) {
+                brr1.push(res2[i].newRating);
+                brr2.push(toDateTime(res2[i].ratingUpdateTimeSeconds));
+                brr3.push(res2[i].contestName);
             }
             //document.getElementById("table").innerHTML = table;
-            var data = {   
+            var data1 = {   
                 x: arr2,
                 y: arr1,
                 text: arr3,
+                type: 'scatter',
+                mode: 'markers+lines'
+            };
+            var data2 = {   
+                x: brr2,
+                y: brr1,
+                text: brr3,
                 type: 'scatter',
                 mode: 'markers+lines'
             };
@@ -69,7 +75,7 @@
                 yaxis: {title: "Rating"},
                 title: "Rating Chart",
             };
-            Plotly.newPlot("graph", [data], layout);
+            Plotly.newPlot("graph", [data1, data2], layout);
         }
     </script>
 </head>
