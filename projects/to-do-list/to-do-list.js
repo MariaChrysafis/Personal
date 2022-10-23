@@ -21,8 +21,10 @@ class ToDo {
 to_do_array = new Array();
 
 function addToDo () {
-    assignment = document.getElementById("iitem").value
-    document.getElementById("to-do").innerHTML += assignment;
+    var ul = document.getElementById("to-do");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(document.getElementById("iitem").value));
+    ul.appendChild(li);
 }
 
 typeSentence('A to-do list with competitive programming in mind!', 1)
