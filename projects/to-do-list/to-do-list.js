@@ -15,6 +15,7 @@ function removeFadeOut( el, speed ) {
     var seconds = speed/1000;
     el.style = "transition: opacity "+seconds+"s ease";
     el.style.opacity = 0;
+    el.style.textDecoration = "Line-through";
     setTimeout(function() {
         el.parentNode.removeChild(el);
     }, speed);
