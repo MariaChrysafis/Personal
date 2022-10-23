@@ -47,9 +47,10 @@ ul li {
   .animate1 {
     animation-name: example;
     animation-duration: 1s;
+    animation-timing-function: ease-in-out;
   }
   
   @keyframes example {
-    from {background-color: purple; color: purple;}
-    to {background-color: white; color: black;}
+    from {background-color: white; color: white; border-color: white;}
+    to {background-color: white; color: black; border-color: purple;}
   }
