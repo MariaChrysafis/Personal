@@ -5,14 +5,27 @@
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head> 
+    <script>
+        async function typeSentence(txt, delay, id) {
+        for (var i = 0; i < txt.length; i++) {
+            await waitForMs(delay);
+            document.getElementById(id).innerHTML += txt[i];
+        }
+        return;
+    }
+    function waitForMs(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+    typeSentence('Maria Chrysafis', 100, "demo")
+    </script>
     <body>
         <div class = "box">
         <div class="navbar">
             <a href="http://127.0.0.1:5555/projects/projects.html/">Projects</a>
             <a href="#home">Resume</a>
         </div>
-        <h1>Maria Chrysafis</h1>
-        <h2>Stanford Online High School Class of 2024</h2>
+        <h1 id="demo"></h1>
+        <h2 id="heading">Stanford Online High School Class of 2024</h2>
         </div>
         <div class="bar"></div>
         <div class="about-me"> 

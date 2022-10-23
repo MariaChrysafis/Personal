@@ -1,4 +1,3 @@
-var i = 0;
 async function typeSentence(txt, delay) {
     for (var i = 0; i < txt.length; i++) {
         await waitForMs(delay);
@@ -12,12 +11,17 @@ function waitForMs(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-to_do_array = new Array();
+function f () {
+    document.getElementById("demo").innerHTML += "hehe";
+}
 
 async function addToDo () {
     var ul = document.getElementById("to-do");
     var li = document.createElement("li");
     li.classList="animate1";
+    li.onclick = function () {
+        this.parentElement.removeChild(this);
+    };
     str = document.getElementById("iitem").value;
     li.appendChild(document.createTextNode(str));
     ul.appendChild(li);
