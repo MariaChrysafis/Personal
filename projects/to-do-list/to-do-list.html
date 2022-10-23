@@ -3,27 +3,18 @@
 <head>
     <link rel="stylesheet" href="to-do-list.css">
     <script src="to-do-list.js"></script>
-
 </head>
 <body>
-    <center style="font-size:2em;">
-    <h1> To-Do List </h1>
-    </center>
-    <center>
-    <form>
-        <div>
-            <input type="text_box" id="add_to_do" size="30" placeholder="Please enter text">
-            </input>
-        </div>
-    </form>
-        <div>
-            <input type="submit" onclick="parse()">
-            </input>
-        </div>
-    </center>
-    <div id="lister" class="lister">
-
+    <h1 align="center" id="demo"></h1>
+    <div>
+        <form id="commentForm" onSubmit="addToDo(); return false;">
+            <div class="input-group">
+                <input type="text" class="form-control" id="iitem" placeholder="Insert To-Do-Item"/ autocomplete="off">
+            </div>
+        </form>
     </div>
+    <p align="center" id="to-do"></h1>
+
 </body>
 </html>
 
