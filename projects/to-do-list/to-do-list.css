@@ -1,5 +1,5 @@
-html {
-    font-family: 'Corpo Serif Medium';
+* {
+    font-family: Consolas, monaco, monospace;
 }
 
 input[type=text] {
@@ -9,14 +9,13 @@ input[type=text] {
     border-bottom: 2px solid black;
     padding: 9px;
     text-align: center;
-    font-family: 'Corpo Serif Medium';
     font-size: 20px;
 }
 
 input[type=text]:focus {
-    width: 100%;
+    width: 90%;
     border: none;
-    border-bottom: 2px solid navy;
+    border-bottom: 2px solid purple;
     outline: none;
 }
 
@@ -34,3 +33,23 @@ ul li {
     margin: 10px;
     padding: 10px;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* <!-- Using the custom property `--i` to calculate the animation duration. --> */
+  .animate1 {
+    animation-name: example;
+    animation-duration: 1s;
+  }
+  
+  @keyframes example {
+    from {background-color: purple; color: purple;}
+    to {background-color: white; color: black;}
+  }

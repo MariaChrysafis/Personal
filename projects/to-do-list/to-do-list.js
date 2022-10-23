@@ -12,19 +12,15 @@ function waitForMs(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-class ToDo {
-    constructor (assignment) {
-        this.assignment = assignment;
-    }
-}
-
 to_do_array = new Array();
 
-function addToDo () {
+async function addToDo () {
     var ul = document.getElementById("to-do");
     var li = document.createElement("li");
-    li.appendChild(document.createTextNode(document.getElementById("iitem").value));
+    li.classList="animate1";
+    str = document.getElementById("iitem").value;
+    li.appendChild(document.createTextNode(str));
     ul.appendChild(li);
 }
 
-typeSentence('A to-do list with competitive programming in mind!', 1)
+typeSentence('A to-do list!', 50)
