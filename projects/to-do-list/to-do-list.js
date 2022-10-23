@@ -24,3 +24,12 @@ async function addToDo () {
 }
 
 typeSentence('A to-do list!', 50)
+
+var close = document.getElementsByClassName("animate1");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
