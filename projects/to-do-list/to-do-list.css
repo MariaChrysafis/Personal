@@ -1,18 +1,5 @@
 html {
-    font-family: 'Corpo Serif Medium';}
-
-table, th, td {
-    border: 1px solid rgba(80, 80, 80, 0.5);
-    border-collapse: collapse;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-}
-
-.box {
-    padding: 20px;
+    font-family: 'Corpo Serif Medium';
 }
 
 input[type=text] {
@@ -37,7 +24,13 @@ form {
     text-align: center;
 }
 
+ul {
+    list-style: none;
+}
 
-form {
-    align: center;
+ul li {
+    border-style: solid;
+    border-color: purple;
+    margin: 10px;
+    padding: 10px;
 }
