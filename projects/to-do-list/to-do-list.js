@@ -46,3 +46,6 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   }
 }
+
+let todos = JSON.parse(localStorage.getItem('to-do'));
+localStorage.setItem('to-do', JSON.stringify(todos));
