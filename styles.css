@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
 html {
     height: 100%;
 }
@@ -56,9 +61,9 @@ h2 {
     text-align: center;
     font-style: italic;
 }
-
 .about-me {
-    padding: 20px;
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
 .about-me p {
@@ -67,5 +72,22 @@ h2 {
 
 .about-me h1 {
     font-size: 30px;
-    text-align: left;
+    text-align: center;
 }
+
+h3 {
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    color: black;
+    text-align: center;
+    padding: 3px;
+    border-style: solid;
+    border-color:rgb(236, 236, 236)
+  }

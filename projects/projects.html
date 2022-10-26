@@ -2,13 +2,25 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="/projects/projects.css">
+        <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head> 
+    <script>
+        async function typeSentence(txt, delay, id) {
+        for (var i = 0; i < txt.length; i++) {
+            await waitForMs(delay);
+            document.getElementById(id).innerHTML += txt[i];
+        }
+        return;
+    }
+    function waitForMs(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+    typeSentence('Projects', 100, "demo")
+    </script>
     <body>
-        Test
-        <div>
-            test this is a test
-        </div>
+        <h1 id="demo"></h1>
+        <a href="cf-rating-basic/cf-rating-basic.html">Codeforces Rating Graph</a>
+        <a href="#home">Resume</a>
     </body>
 </html>
